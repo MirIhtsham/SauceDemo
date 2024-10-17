@@ -6,7 +6,7 @@ import addToCartPage from "../page-objects/add.to.cart.page"
 import buyerDetailsPage from "../page-objects/buyer.details.page"
 import productSummaryPage from "../page-objects/product.summary.page"
 
-describe('Automate', () => {
+describe('Sauce demo: login and add to cart validation', () => {
     beforeEach(() => {
         cy.session('Login session', () => {
             cy.visit('/')
@@ -24,8 +24,8 @@ describe('Automate', () => {
         addToCartPage.addAnItemToCartAndCheckout()
         buyerDetailsPage.fillBuyerDetailsAndClickContinueBtn(BuyerDetails.firstName, BuyerDetails.lastName, BuyerDetails.postCode)
         productSummaryPage.verifyProductAttributeValues(ProductSpecificationValues.productTitle, ProductSpecificationValues.productDescription, ProductSpecificationValues.productPrice)
-        cy.get(productSummaryPage.finishBtn).click()
-        cy.get(productSummaryPage.orderCompletionSuccessMsgHeader).should('have.text', orderCompletionSuccessMsg)
+        productSummaryPage.finishBtn.click()
+        productSummaryPage.orderCompletionSuccessMsgHeader.should('have.text', orderCompletionSuccessMsg)
     })
 
 })

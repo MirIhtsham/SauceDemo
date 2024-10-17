@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "login_and_add_to_cart_tests_headless": "npx cypress run --spec \"cypress/e2e/login.test.cy.ts\"",
+    "login_and_add_to_cart_tests_headed": "npx cypress open \"cypress/e2e/login.test.cy.ts\""
   },
   "keywords": [],
   "author": "",
